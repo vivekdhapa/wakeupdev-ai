@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { isCancel,text } from "@clack/prompts";
 import { defaultAgentConfig } from "./types.ts";
+import { ActionTracker } from './action-tracker.ts';
 
 export async function runAgentMode(){
     console.log(chalk.bold('\n🤖 Agent Mode\n'));
@@ -17,4 +18,5 @@ export async function runAgentMode(){
 
     const config = defaultAgentConfig();
     const tracker = new ActionTracker();
+    
 }
