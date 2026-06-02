@@ -1,0 +1,35 @@
+import chalk from "chalk";
+import {select , isCancel} from "@clack/prompts";
+
+export async function runCliMode(){
+    while(true){
+        const mode=await select({
+            message:"Choose CLI sub-mode",
+            options:[ 
+                {value:"agent",label:"Agent Mode"},
+                {value:"plan",label:"Plan Mode"},
+                {value:"ask",label:"Ask Mode"},
+                {value:"back",label:"← Back to main menu"},
+            ],
+        });
+
+        if(isCancel(mode) || mode==="back")return;
+
+        if(mode==="agent"){
+            console.log("Entering Agent Mode");
+            
+        }
+        if(mode==="plan"){
+            console.log("Entering Plan Mode");
+            
+        }
+        if(mode==="ask"){
+            console.log("Entering Ask Mode");
+            
+        }
+
+            if(mode !=="agent" && mode !== "plan" && mode !== "ask"){
+                console.log(chalk.yellow('Invalid option, please try again.'));
+            }
+    }
+}
